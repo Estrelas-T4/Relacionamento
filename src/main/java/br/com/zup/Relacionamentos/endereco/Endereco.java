@@ -13,7 +13,7 @@ public class Endereco {
     private String locradouro;
     @Column(nullable = false)
     private String numero;
-    @Column(columnDefinition = "varchar(50) default 'NT'")
+    @Column(columnDefinition = "VARCHAR(50) default 'NT'")
     private String complemento;
     @Column(nullable = false)
     private String cep;
