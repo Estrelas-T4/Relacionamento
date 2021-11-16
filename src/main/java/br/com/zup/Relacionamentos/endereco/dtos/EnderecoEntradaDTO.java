@@ -1,33 +1,16 @@
-package br.com.zup.Relacionamentos.endereco;
+package br.com.zup.Relacionamentos.endereco.dtos;
 
 
-import javax.persistence.*;
+import javax.validation.constraints.NotBlank;
 
-@Entity
-@Table(name = "enderecos")
-public class Endereco {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
-    @Column(nullable = false)
+public class EnderecoEntradaDTO {
+    @NotBlank
     private String logradouro;
-    @Column(nullable = false)
+    @NotBlank
     private String numero;
-    @Column(columnDefinition = "VARCHAR(50) default 'NT'")
     private String complemento;
-    @Column(nullable = false)
+    @NotBlank
     private String cep;
-
-    public Endereco() {
-    }
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
 
     public String getLogradouro() {
         return logradouro;

@@ -18,7 +18,7 @@ public class CadastroController {
     @PostMapping()
     public Cadastro cadastrar(@RequestBody @Valid CadastroEntradaDTO cadastroEntradaDTO){
         Cadastro cadastro = modelMapper.map(cadastroEntradaDTO, Cadastro.class);
-        return cadastroService.salvarCadastro(cadastro);
+        return cadastroService.salvarNovoCadastroComEndereco(cadastro);
     }
 
     @GetMapping("/{id}")
