@@ -1,9 +1,9 @@
 package br.com.zup.Relacionamentos.cadastro;
 
-import javax.persistence.Column;
-import javax.persistence.Entity;
-import javax.persistence.Id;
-import javax.persistence.Table;
+import br.com.zup.Relacionamentos.endereco.Endereco;
+
+import javax.persistence.*;
+import java.util.List;
 
 @Entity
 @Table(name = "pessoa")
@@ -13,8 +13,18 @@ public class Cadastro {
     private String nome;
     @Column(unique = true)
     private String email;
+    @OneToMany
+    private List<Endereco> enderecos;
 
     public Cadastro() {
+    }
+
+    public List<Endereco> getEnderecos() {
+        return enderecos;
+    }
+
+    public void setEnderecos(List<Endereco> enderecos) {
+        this.enderecos = enderecos;
     }
 
     public String getCpf() {
