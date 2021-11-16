@@ -10,7 +10,7 @@ public class Endereco {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Integer id;
     @Column(nullable = false)
-    private String locradouro;
+    private String logradouro;
     @Column(nullable = false)
     private String numero;
     @Column(columnDefinition = "VARCHAR(50) default 'NT'")
@@ -30,11 +30,11 @@ public class Endereco {
     }
 
     public String getLocradouro() {
-        return locradouro;
+        return logradouro;
     }
 
-    public void setLocradouro(String locradouro) {
-        this.locradouro = locradouro;
+    public void setLocradouro(String logradouro) {
+        this.logradouro = logradouro;
     }
 
     public String getNumero() {
