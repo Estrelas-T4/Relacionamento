@@ -13,7 +13,7 @@ public class Cadastro {
     private String nome;
     @Column(unique = true)
     private String email;
-    @OneToMany
+    @OneToMany(cascade = CascadeType.ALL)
     private List<Endereco> enderecos;
 
     public Cadastro() {

@@ -3,6 +3,7 @@ package br.com.zup.Relacionamentos.cadastro;
 import br.com.zup.Relacionamentos.cadastro.dtos.CadastroEntradaDTO;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -26,4 +27,9 @@ public class CadastroController {
         return cadastroService.buscarPorId(id);
     }
 
+    @DeleteMapping("/{id}")
+    @ResponseStatus(HttpStatus.NO_CONTENT)
+    public void deletarCadastro(@PathVariable String id){
+        cadastroService.deletarCadastro(id);
+    }
 }
