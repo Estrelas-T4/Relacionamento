@@ -1,5 +1,6 @@
 package br.com.zup.Relacionamentos.cadastro;
 
+import br.com.zup.Relacionamentos.cadastro.dtos.CadastroDetailDTO;
 import br.com.zup.Relacionamentos.cadastro.dtos.CadastroEntradaDTO;
 import org.modelmapper.ModelMapper;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -17,14 +18,16 @@ public class CadastroController {
     private ModelMapper modelMapper;
 
     @PostMapping()
-    public Cadastro cadastrar(@RequestBody @Valid CadastroEntradaDTO cadastroEntradaDTO){
+    public CadastroDetailDTO cadastrar(@RequestBody @Valid CadastroEntradaDTO cadastroEntradaDTO){
         Cadastro cadastro = modelMapper.map(cadastroEntradaDTO, Cadastro.class);
-        return cadastroService.salvarNovoCadastroComEndereco(cadastro);
+        cadastro = cadastroService.salvarNovoCadastroComEndereco(cadastro);
+        return modelMapper.map(cadastro, CadastroDetailDTO.class);
     }
 
     @GetMapping("/{id}")
-    public Cadastro exibirCadastro(@PathVariable String id){
-        return cadastroService.buscarPorId(id);
+    public CadastroDetailDTO exibirCadastro(@PathVariable String id){
+        Cadastro cadastro = cadastroService.buscarPorId(id);
+        return modelMapper.map(cadastro, CadastroDetailDTO.class);
     }
 
     @DeleteMapping("/{id}")
